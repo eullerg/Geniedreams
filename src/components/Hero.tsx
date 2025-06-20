@@ -154,7 +154,7 @@ export default function Hero() {
           Powered by
         </span>
         <Image
-          src="/veo3-logo.png"
+          src="/VEO3-Logo.png"
           alt="VEO3 logo"
           width={220}
           height={64}
