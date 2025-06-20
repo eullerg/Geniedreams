@@ -1,0 +1,150 @@
+/* -------------------- Tailwind v3 layers -------------------- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -------------------- CSS custom properties ----------------- */
+:root {
+  --turquoise   : #17E6E4;
+  --neon-purple : #C700FF;
+  --whatsapp    : #25D366;
+
+  --bg : #0A0A0A;
+  --fg : #FFFFFF;
+}
+
+/* -------------------- Base reset ---------------------------- */
+html, body { height: 100%; }
+
+body {
+  @apply bg-neutral-950 text-white antialiased font-geist;
+}
+
+/* Headings: fonte mono para personalidade */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-geist-mono font-bold tracking-tight;
+}
+
+/* Links */
+a {
+  @apply text-turquoise underline-offset-4 transition hover:opacity-90;
+}
+
+/* Seleção de texto */
+::selection { background: var(--turquoise); color: #000; }
+
+/* Scrollbar escura (WebKit) */
+::-webkit-scrollbar              { width: 8px; }
+::-webkit-scrollbar-track        { @apply bg-neutral-900; }
+::-webkit-scrollbar-thumb        { @apply bg-neutral-700 rounded-full; }
+::-webkit-scrollbar-thumb:hover  { background: var(--turquoise); }
+
+/* --- HERO OUTLINE BUTTON (glass + gradient border on hover) ------------ */
+.hero-outline-button {
+  position: relative;
+  overflow: hidden;         /* mantém o contorno dentro do gap */
+  border-radius: 8px;       /* mesmo valor do botão Tailwind */
+  background: rgba(255,255,255,0.08);      /* vidro fosco */
+  backdrop-filter: blur(8px);              /* ... */
+  transition: background 0.3s;
+}
+
+.hero-outline-button:hover {
+  background: rgba(255,255,255,0.12);      /* vidro um pouco + claro */
+}
+
+/* Contorno: gradiente só aparece ao hover */
+.hero-outline-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;                 /* ocupa toda a área do botão */
+  padding: 1px;             /* ESPESSURA DA BORDA */
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--turquoise), var(--neon-purple));
+  
+  /* Máscara para mostrar APENAS a borda */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);            /* segundo para recortar */
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;        /* padrão W3C */
+  
+  opacity: 0;               /* invisível */
+  transition: opacity 0.3s, box-shadow 0.3s;
+  pointer-events: none;     /* não interfere no hover */
+}
+
+.hero-outline-button:hover::before {
+  opacity: 1;               /* “acende” contorno */
+  box-shadow: 0 0 10px var(--turquoise), 0 0 20px var(--neon-purple);
+}
+
+/* --- variante compacta de hero-outline-button ------------------------- */
+.btn-sm.hero-outline-button::after {
+  inset: -3px;        /* contorno só 3 px fora (antes era -6 px) */
+  border-radius: 6px; /* acompanha o novo inset */
+}
+
+
+/* ---------- Animated Mesh-Gradient --------------------------*/
+.mesh-gradient {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.mesh-gradient div {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  animation: meshMove 30s ease-in-out infinite;
+}
+
+.mesh-gradient div:nth-child(1) {
+  width: 60%;
+  height: 60%;
+  background: var(--turquoise);
+  top: -15%;
+  left: -20%;
+}
+.mesh-gradient div:nth-child(2) {
+  width: 70%;
+  height: 70%;
+  background: var(--neon-purple);
+  top: 40%;
+  right: -25%;
+  animation-delay: 8s;
+}
+.mesh-gradient div:nth-child(3) {
+  width: 55%;
+  height: 55%;
+  background: #1e90ff;           /* azul extra p/ transição */
+  bottom: -15%;
+  left: 25%;
+  animation-delay: 0.3s;
+}
+
+@keyframes meshMove {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50%     { transform: translate(80px,-60px) scale(1.2); }
+}
+
+/* -------- Optional grain overlay (já existia) --------------*/
+.grainOverlay {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background-image: url("/grain.png");
+  background-size: 300px 300px;
+  mix-blend-mode: overlay;
+  opacity: 0.1;
+}
+
+.mesh-gradient::before,
+.mesh-gradient::after,
+.mesh-gradient div::before {
+  content: \"\";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  animation: meshMove 30s ease-in-out infinite;
+}
