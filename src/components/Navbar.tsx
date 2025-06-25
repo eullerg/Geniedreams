@@ -9,16 +9,16 @@ export default function Navbar() {
     <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-neutral-950/60 backdrop-blur-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo + Nome */}
-        <Link href="https://chat.whatsapp.com/B67TOgZXQTOETP9XGmvO4D" className="flex items-center gap-2 font-geist-mono text-lg font-semibold">
+        <Link href="https://chat.whatsapp.com/B67TOgZXQTOETP9XGmvO4D" className="flex items-center gap-2 font-geist-mono text-lg text-white font-semibold">
           <Image
             src="/geniedreams-logo.png"        
-            alt="GenieDreams logo"
+            alt="Geniedreams logo"
             width={28}                         /* altura logo */
             height={28}
             className="object-contain"
             priority
           />
-          GenieDreams
+          Geniedreams
         </Link>
 
         {/* Links desktop */}
@@ -32,7 +32,7 @@ export default function Navbar() {
             <Link
               key={href}
               href={href}
-              className="text-sm font-geist-mono transition hover:text-turquoise"
+              className="text-sm font-geist-mono transition text-white hover:text-neonPurple"
             >
               {label}
             </Link>
@@ -41,7 +41,7 @@ export default function Navbar() {
 
         {/* CTA padronizado */}
         <Link
-          href="https://chat.whatsapp.com/B67TOgZXQTOETP9XGmvO4D" /* TODO: número */
+          href="http://wa.me/558331428770" /* TODO: número */
           className="
             hero-outline-button
             flex items-center gap-2
@@ -57,7 +57,7 @@ export default function Navbar() {
           "
         >
           
-          Comece Agora!
+          Criar Vídeo 🧞
         </Link>
       </div>
     </header>

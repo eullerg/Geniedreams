@@ -5,8 +5,8 @@ import { MessageCircle, Sparkles, Download } from "lucide-react";
 const steps = [
   {
     icon: MessageCircle,
-    title: "Envie sua ideia",
-    description: "Abra o WhatsApp, descreva ou envie uma imagem. Só isso!",
+    title: "Envie seu pedido",
+    description: "'Showroom futurista com óculos escuros, flutuando e mudando de cor no ritmo de synthwave, ângulo de drone'",
   },
   {
     icon: Sparkles,
@@ -15,17 +15,25 @@ const steps = [
   },
   {
     icon: Download,
-    title: "Receba & compartilhe",
-    description: "O arquivo chega direto no WhatsApp, pronto para postar.",
+    title: "E o resultado?",
+    description: "Um conteúdo que parece ter custado milhões… mas saiu do seu WhatsApp.",
   },
 ];
 
 export default function Steps() {
   return (
     <section id="como-funciona" className="mx-auto max-w-6xl px-6 py-24">
-      <h2 className="mb-12 text-center font-geist-mono text-3xl font-semibold">
-        Simples assim → 3 passos
+      {/* Heading */}
+      <h2 className="text-center font-geist-mono text-3xl md:text-4xl font-semibold">
+      Parece mágica, mas é Geniedreams!
       </h2>
+
+      {/* Sub-título */}
+      <p className="mt-4 mb-12 text-center text-sm md:text-base text-neutral-400 font-geist-mono">
+      Quer um vídeo que faça seus concorrentes perguntarem "como eles fizeram isso?" Sem estúdio. Sem edição. Apenas mensagens.
+      </p>
+
+      {/* Cards */}
       <div className="grid gap-10 md:grid-cols-3">
         {steps.map(({ icon: Icon, title, description }) => (
           <div
@@ -34,7 +42,9 @@ export default function Steps() {
           >
             <Icon className="mx-auto mb-4 h-10 w-10 text-turquoise" />
             <h3 className="mb-2 font-geist-mono text-xl font-medium">{title}</h3>
-            <p className="text-sm leading-relaxed text-neutral-400">{description}</p>
+            <p className="text-sm leading-relaxed text-neutral-400">
+              {description}
+            </p>
           </div>
         ))}
       </div>

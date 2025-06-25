@@ -11,7 +11,7 @@ export default function Footer() {
   ];
 
   const institutional: [string, string][] = [
-    ["Segurança", "/seguranca"],
+   
     ["Termos", "/termos"],
     ["Privacidade", "/privacidade"],
   ];
@@ -22,10 +22,10 @@ export default function Footer() {
         {/* Brand / Contact */}
         <div className="flex flex-col space-y-3">
           <Link
-            href="mailto:support@geniedreams.ai"
+            href="mailto:dimasgbss.work@gmail.com"
             className="inline-flex items-center gap-1 transition hover:text-white"
           >
-            support@geniedreams.ai <span>↗</span>
+            dimasgbss.work@gmail.com <span>↗</span>
           </Link>
 
           <span className="inline-flex w-max items-center rounded-md bg-white/10 px-3 py-1 text-xs font-semibold text-white hover:bg-white/20">
@@ -57,24 +57,7 @@ export default function Footer() {
 
         {/* CTA WhatsApp  */}
         <div className="flex md:justify-end">
-  <motion.a
-    whileTap={{ scale: 0.95 }}
-    href="https://chat.whatsapp.com/B67TOgZXQTOETP9XGmvO4D"           /* TODO: adicionar número */
-    className="
-      hero-outline-button           /* vidro + borda neon padrão */
-      rounded-md
-      bg-white/10
-      px-4 py-3                     /* ⬅️ mesmo padding do botão CTA */
-      font-geist-mono text-sm text-white
-      backdrop-blur-md
-      transition duration-300
-      hover:bg-white/15
-    "
-  >
-    Clique aqui AGORA 👆<br />
-    e garanta um desconto<br />
-    especial no seu primeiro vídeo!🤝
-  </motion.a>
+
 </div>
       </div>
     </footer>

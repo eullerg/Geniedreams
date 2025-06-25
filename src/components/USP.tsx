@@ -5,10 +5,10 @@ export default function USP() {
   return (
     <section id="beneficios" className="bg-neutral-900 py-20 px-6 text-center">
       <h2 className="mx-auto mb-6 max-w-3xl font-geist-mono text-3xl font-semibold">
-        Zero painel. 100 % no WhatsApp.
+      Se você consegue descrever, a Geniedreams consegue criar!
       </h2>
       <p className="mx-auto max-w-xl text-neutral-400">
-        Focamos na experiência mais simples possível: você conversa, nós entregamos vídeos prontos para publicar. Nenhum software para aprender.
+      Seus clientes vão pensar que você tem um estúdio profissional, quando tudo que você tem é um celular e ótimas ideias! Peça, receba e compartilhe, sem precisar virar expert em IA.
       </p>
     </section>
   );

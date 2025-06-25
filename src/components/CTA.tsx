@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function CTA() {
   const handleWhatsapp = () => {
-    window.location.href = "https://chat.whatsapp.com/B67TOgZXQTOETP9XGmvO4D"; // TODO: add number
+    window.location.href = "http://wa.me/558331428770"; // TODO: add number
   };
 
   return (
@@ -26,7 +26,7 @@ export default function CTA() {
             onClick={handleWhatsapp}
             className="hero-outline-button rounded-md bg-white/10 px-6 py-3 font-geist-mono text-sm text-white backdrop-blur-md transition duration-300 hover:bg-white/15 md:text-base"
           >
-            Entre em Contato
+            🚀 CRIAR AGORA!
           </motion.button>
         </div>
 

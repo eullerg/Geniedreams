@@ -2,20 +2,56 @@
 
 const faqs = [
   [
-    "O que é a GenieDreams?",
-    "Uma IA que transforma textos ou imagens em vídeos curtos, entregues via WhatsApp.",
+    "O que é a Geniedreams?",
+    "Seu estúdio de criação via WhatsApp: transforme textos, imagens ou ideias em vídeos profissionais com IA sem apps ou edição manual.",
   ],
   [
-    "Preciso saber editar?",
-    "Não! Toda edição é automática. Você só publica.",
+    "Como funciona?",
+    "1. Envie seu pedido por WhatsApp (ex.:Showroom futurista com meus óculos escuros flutuando em synthwave) 2. Nossa IA confirma os detalhes e cria o vídeo 3. Você recebe o arquivo pronto para postar em minutos",
   ],
   [
-    "Em quais plataformas meus vídeos funcionam?",
-    "TikTok, Reels, Shorts ou qualquer player 16:9/9:16.",
+    "Preciso instalar algo ou ter habilidades técnicas?",
+    "Absolutamente não. Basta ter WhatsApp e saber descrever seu pedido em português natural.",
   ],
   [
-    "Posso usar minhas imagens ou músicas?",
-    "Sim, basta enviá-las junto da sua mensagem.",
+    "Posso usar minhas próprias imagens/vídeos?",
+    "Sim! Envie-os no chat junto com suas instruções. A IA ajusta automaticamente iluminação, cortes, efeitos e mais.",
+  ],
+  [
+    "Consigo escolher o estilo do vídeo (realista, cartoon, etc.)?",
+    "Com certeza! Especifique na mensagem (ex.: Estilo 3D animado ou Tom cinematográfico realista)."
+  ],
+  [
+    "Em quais redes sociais meus vídeos funcionam?",
+    "Formatos 9:16 e 16:9. YouTube, Instagram, TikTok, X, LinkedIn.",
+  ],
+  [
+    "Os vídeos têm marca d’água?",
+    "Não! Você recebe arquivos limpos, prontos para branding (podemos incluir seu logo sob demanda).",
+  ],
+  [
+    "Consigo gerar vídeos em outros formatos (como 1:1)?",
+    "Atualmente focamos em 16:9 e 9:16, mas planejamos novos formatos em breve!",
+  ],
+  [
+    "Como funcionam os créditos?",
+    "1 crédito = 1 vídeo de 5s a 10s. Os créditos têm validade mensal (não cumulativos), renovados automaticamente conforme seu plano.",
+  ],
+  [
+    "Há opção para agências, empresas ou grandes demandas?",
+    "Sim! Entre em contato conosco para saber mais.",
+  ],
+  [
+    "Qual o prazo para receber os vídeos?",
+    "De 2 a 5 minutos por vídeo (dependendo da complexidade).",
+  ],
+  [
+    "Quem é dono dos vídeos criados?",
+    "Você! Todos os direitos autorais são transferidos assim que o vídeo é entregue.",
+  ],
+  [
+    "A Geniedreams pode usar meus vídeos como exemplo?",
+    "Só com sua autorização explícita (perguntaremos sempre).",
   ],
 ];
 

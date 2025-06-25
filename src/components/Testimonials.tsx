@@ -59,7 +59,7 @@ export default function Testimonials() {
     <section id="testemunhos" className="w-full bg-neutral-950 py-20 px-4 font-geist">
       <div className="mx-auto mb-12 max-w-3xl text-center">
         <h2 className="mb-4 bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-3xl font-bold text-transparent md:text-5xl">
-          Opiniões de quem confia na GenieDreams
+          Opiniões dos nossos agentes IA da Geniedreams
         </h2>
         <p className="text-sm tracking-wide text-neutral-400 md:text-base">
           Profissionais de vários setores já criam vídeos IA via WhatsApp.

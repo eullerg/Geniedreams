@@ -1,8 +1,15 @@
 "use client";
 
+import { useRef, useState } from "react";            /* ⬅️ novo */
 import Link from "next/link";
 import Image from "next/image";
-import { Sparkles } from "lucide-react";
+import {
+  Sparkles,
+  Volume2,
+  VolumeX,
+  Play,
+  Pause,                                         /* ⬅️ ícones */
+} from "lucide-react";
 import { motion } from "framer-motion";
 
 type Dot = {
@@ -96,16 +103,15 @@ export default function Hero() {
         {/* Texto */}
         <div className="flex flex-col items-center gap-6 text-center md:items-start md:text-start">
           <h1 className="font-geist text-[clamp(2rem,4.2vw,3.4rem)] font-extrabold leading-tight text-white">
-            Crie videos<br />
+            Crie vídeos<br />
             <span className="text-turquoise">impressionantes</span>
             <br />
-            com ia que vendem<br />
+            com IA que vendem<br />
             e <span className="text-neonPurple">engajam</span>
           </h1>
 
           <p className="max-w-md text-base text-neutral-300">
-            Peça no WhatsApp e receba em minutos. Sem apps. Sem habilidades.
-            Simples assim.
+          Sem apps, sem instalações, sem esforço. Apenas peça, receba, e compartilhe.
           </p>
 
           <div className="flex flex-col items-center gap-4 sm:flex-row md:items-start">
@@ -114,54 +120,99 @@ export default function Hero() {
               className="hero-outline-button rounded-md bg-white/10 px-8 py-3 font-geist-mono text-sm text-white backdrop-blur-md transition hover:bg-white/15"
             >
               <Sparkles className="mr-2 inline-block h-5 w-5" />
-              Criar Meu Primeiro Vídeo
+               Criar meu primeiro vídeo! 
             </Link>
             <Link
               href="#como-funciona"
               className="text-sm text-white/70 underline-offset-4 transition hover:text-white"
             >
-              Como Funciona →
+              
             </Link>
           </div>
         </div>
 
         {/* Mockup WhatsApp */}
-        <div className="mt-32 flex w-full max-w-sm justify-center md:mt-32 md:ml-auto md:justify-end md:translate-x-16 -translate-y-[10%]">
+        <div className="mt-56 flex w-full max-w-sm justify-center md:mt-32 md:ml-auto md:justify-end md:translate-x-16 -translate-y-[10%]">
           <div className="w-full rounded-2xl bg-[#152415]/40 p-5 shadow-lg backdrop-blur-sm">
+            {/* Header */}
             <div className="mb-4 flex items-center gap-2 text-sm font-semibold text-white/80">
               <span className="inline-block h-3 w-3 rounded-full bg-green-500" />
-              Geniedreams Bot
+              Assistente criativo Geniedreams no WhatsApp
             </div>
+
             <div className="flex flex-col gap-3 font-geist-mono text-xs sm:text-sm">
+              {/* Bolhas de texto */}
               <div className="w-fit max-w-[85%] self-start rounded-2xl bg-neonPurple/25 p-3">
-                “Um dragão dourado voando sobre um castelo medieval ao pôr-do-sol,
-                9:16, 8 segundos”
+                “Uma modelo vestindo um casaco, estilo inverno premium, preto e laranja, em um estudio com fotógrafos ao fundo, a câmera então se afasta, em uma perspectiva de baixo para cima.”
               </div>
               <div className="w-fit max-w-[85%] self-end rounded-2xl bg-turquoise/25 p-3">
-                Formato 9:16 selecionado. Aguarde, criando sua obra-prima…
+              Seu vídeo em 16:9 está sendo criado. Em breve você terá um conteúdo digno de campanhas de alto desempenho! ❄️🛍️
               </div>
-              <div className="flex h-36 w-full items-center justify-center self-end rounded-2xl border border-dashed border-white/20 bg-gradient-to-br from-neonPurple/20 to-turquoise/20">
-                <span className="text-white/70">▶️ Pré-visualização</span>
-              </div>
+
+              {/* --- Pré-visualização em vídeo com controles --- */}
+              {(() => {
+                const [muted, setMuted]   = useState(true);
+                const [playing, setPlay]  = useState(true);
+                const videoRef            = useRef<HTMLVideoElement>(null);
+
+                return (
+                  <div className="relative flex h-56 w-full overflow-hidden rounded-2xl border border-dashed border-white/20">
+                    <video
+                      ref={videoRef}
+                      src="/geniedreamsexemplo2.mp4"
+                      autoPlay
+                      loop
+                      muted={muted}
+                      playsInline
+                      className="h-full w-full object-cover"
+                    />
+
+                    {/* Botões */}
+                    <div className="absolute bottom-2 right-2 flex gap-2">
+                      {/* mute / unmute */}
+                      <button
+                        onClick={() => {
+                          setMuted(!muted);
+                          if (videoRef.current)
+                            videoRef.current.muted = !muted;
+                        }}
+                        className="rounded-full bg-black/50 p-1 backdrop-blur-sm transition hover:bg-black/70"
+                      >
+                        {muted ? (
+                          <VolumeX className="h-4 w-4 text-white" />
+                        ) : (
+                          <Volume2 className="h-4 w-4 text-white" />
+                        )}
+                      </button>
+
+                      {/* play / pause */}
+                      <button
+                        onClick={() => {
+                          if (!videoRef.current) return;
+                          if (playing) {
+                            videoRef.current.pause();
+                          } else {
+                            videoRef.current.play();
+                          }
+                          setPlay(!playing);
+                        }}
+                        className="rounded-full bg-black/50 p-1 backdrop-blur-sm transition hover:bg-black/70"
+                      >
+                        {playing ? (
+                          <Pause className="h-4 w-4 text-white" />
+                        ) : (
+                          <Play className="h-4 w-4 text-white" />
+                        )}
+                      </button>
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Powered by */}
-      <div className="mt-20 flex flex-col items-center gap-2 translate-y-[15%]">
-        <span className="font-geist-mono text-xs uppercase tracking-wide text-white/60">
-          Powered by
-        </span>
-        <Image
-          src="/VEO3-Logo.png"
-          alt="VEO3 logo"
-          width={220}
-          height={64}
-          className="object-contain opacity-90"
-          priority
-        />
-      </div>
+        </div>
+        <div className="mt-40 flex flex-col items-center gap-2"></div>
     </section>
   );
 }

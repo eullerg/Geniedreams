@@ -13,37 +13,40 @@ interface Plan {
 
 const plans: Plan[] = [
   {
-    name: "Starter",
-    credits: 20,
-    price: "R$ 199",
+    name: "Hobby",
+    credits: 5,
+    price: "R$ 19,99",
     features: [
-      "20 créditos de vídeo IA",
-      "Suporte básico via WhatsApp",
-      "Entrega em até 15 min",
+      "5 créditos de vídeo",
+      "Criar vídeos (5 a 10s)",
+      "Criar imagens",
+      "Comunidade Geniedreams",
     ],
   },
   {
-    name: "Pro",
-    credits: 100,
-    price: "R$ 599",
+    name: "Criador",
+    credits: 20,
+    price: "R$ 149,99",
     highlighted: true,
     features: [
-      "100 créditos (economize 20%)",
-      "Prioridade na fila de render",
-      "Template personalizado",
-      "1 revisão gratuita",
+      "20 créditos de vídeo",
+      "Tudo no plano Hobby",
+      "Criar vídeos com imagens de referência",
+      "Editar imagens",
+      "Combinar imagens"
     ],
   },
   {
-    name: "Studio",
-    credits: 500,
-    price: "R$ 899",
+    name: "Premiere",
+    credits: 100,
+    price: "R$ 999,99",
     features: [
-      "500 créditos (economize 40%)",
-      "Suporte dedicado 24h",
-      "Integração via API",
-      "Revisões ilimitadas",
-      "Acesso antecipado a novos filtros",
+      "100 créditos de vídeo",
+      "Tudo no plano Criador",
+      "Editar vídeos",
+      "Consultoria mensal com especialistas",
+      "Acesso antecipado a novas funcionalidades",
+      "Suporte dedicado"
     ],
   },
 ];
@@ -57,11 +60,11 @@ const CheckItem = ({ children }: { children: React.ReactNode }) => (
 
 export default function Pricing() {
   const handleBuy = () => {
-    window.location.href = "https://chat.whatsapp.com/B67TOgZXQTOETP9XGmvO4D"; // TODO: Add number
+    window.location.href = "http://wa.me/558331428770?text=Ol%C3%A1%21+Gostaria+de+saber+sobre+Planos"; // TODO: Add number
   };
 
   const handleEnterprise = () => {
-    window.location.href = "https://chat.whatsapp.com/B67TOgZXQTOETP9XGmvO4D"; // TODO: Add number
+    window.location.href = "http://wa.me/558331428770?text=Ol%C3%A1%21+Gostaria+de+saber+sobre+Vendas"; // TODO: Add number
   };
 
   return (
@@ -72,10 +75,10 @@ export default function Pricing() {
           className="mb-3 bg-clip-text text-3xl font-bold text-transparent md:text-5xl"
           style={{ backgroundImage: "linear-gradient(to right,#fff,#888)" }}
         >
-          Planos GenieDreams
+          Planos Geniedreams
         </h2>
         <p className="text-sm text-neutral-400 md:text-base">
-          Escolha o pacote de créditos perfeito para seu fluxo de criação.
+        Do Hobby ao Profissional: escolha o que combina com seu ritmo de criação.
         </p>
       </div>
 
@@ -119,7 +122,7 @@ export default function Pricing() {
               onClick={handleBuy}
               className="hero-outline-button mt-auto w-full rounded-md bg-transparent px-4 py-2 text-sm transition hover:bg-white/10"
             >
-              Comprar no WhatsApp
+              Quero este Plano
             </motion.button>
           </motion.div>
         ))}
@@ -127,16 +130,16 @@ export default function Pricing() {
 
       {/* Texto adicional */}
       <div className="mx-auto mt-10 max-w-4xl text-center text-sm text-neutral-400">
-        Precisa de <span className="font-semibold text-white">mais de 500 créditos</span> ou de uma
-        integração corporativa em larga escala? Nosso time pode configurar um
-        plano <span className="text-turquoise">Enterprise</span> sob medida para você.
+        Precisa de <span className="font-semibold text-white">um plano personalizado</span> ou volume
+        corporativo? Fale com nosso time e criamos uma solução
+        sob medida para suas necessidades com <span className="text-turquoise">descontos</span> progressivos e integração dedicada.
         <br className="hidden md:block" />
         <motion.button
           whileTap={{ scale: 0.95 }}
           onClick={handleEnterprise}
           className="hero-outline-button mt-4 inline-flex rounded-md bg-transparent px-5 py-2 text-xs md:text-sm transition hover:bg-white/10"
         >
-          Falar com Vendas
+          Fale conosco
         </motion.button>
       </div>
     </section>
