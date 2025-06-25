@@ -6,7 +6,7 @@ const steps = [
   {
     icon: MessageCircle,
     title: "Envie seu pedido",
-    description: "&quot;Showroom futurista com óculos escuros, flutuando e mudando de cor no ritmo de synthwave, ângulo de drone&quot;",
+    description: "Exemplo: Showroom futurista com óculos escuros, flutuando e mudando de cor no ritmo de synthwave, ângulo de drone.",
   },
   {
     icon: Sparkles,
@@ -16,7 +16,7 @@ const steps = [
   {
     icon: Download,
     title: "E o resultado?",
-    description: "Um conteúdo que parece ter custado milhões… mas saiu do seu WhatsApp.",
+    description: "Um conteúdo que parece ter custado milhões, mas saiu do seu WhatsApp!",
   },
 ];
 
