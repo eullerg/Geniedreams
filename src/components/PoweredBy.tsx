@@ -4,11 +4,17 @@ import Image from "next/image";
 
 export default function PoweredBy() {
   return (
-    <section className="w-full bg-[#0A0A0A] py-20">
-      <div className="mx-auto flex flex-col items-center gap-8">
+    <section className="w-full bg-[#0A0A0A] py-20 px-4">
+      <div className="mx-auto max-w-5xl flex flex-col items-center gap-8">
         {/* Heading */}
-        <span className="font-geist-mono text-xs uppercase tracking-wide text-white/60">
-        Construída com tecnologia de ponta, simplificada para você
+        <span
+          className="
+            block text-center
+            font-geist-mono text-xs sm:text-sm
+            uppercase tracking-wide text-white/60
+          "
+        >
+          Construída com tecnologia de ponta, simplificada para você
         </span>
 
         {/* Logos */}

@@ -1,14 +1,14 @@
 "use client";
 
-import { useRef, useState } from "react";            /* ⬅️ novo */
+import { useRef, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
+// Removido import do Image pois não está sendo usado
 import {
   Sparkles,
   Volume2,
   VolumeX,
   Play,
-  Pause,                                         /* ⬅️ ícones */
+  Pause,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -36,6 +36,11 @@ const dots: Dot[] = Array.from({ length: 30 }, () => ({
 }));
 
 export default function Hero() {
+  // Hooks movidos para o topo do componente
+  const [muted, setMuted] = useState(true);
+  const [playing, setPlay] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   return (
     <section id="hero" className="relative overflow-hidden bg-[#0A0A0A] pt-28">
       {/* ------- fitas diagonais -------- */}
@@ -111,12 +116,12 @@ export default function Hero() {
           </h1>
 
           <p className="max-w-md text-base text-neutral-300">
-          Sem apps, sem instalações, sem esforço. Apenas peça, receba, e compartilhe.
+          Sem apps, sem instalações, sem esforço. Apenas peça, receba e compartilhe.
           </p>
 
           <div className="flex flex-col items-center gap-4 sm:flex-row md:items-start">
             <Link
-              href="https://chat.whatsapp.com/B67TOgZXQTOETP9XGmvO4D" /* TODO: add number */
+              href="https://chat.whatsapp.com/B67TOgZXQTOETP9XGmvO4D"
               className="hero-outline-button rounded-md bg-white/10 px-8 py-3 font-geist-mono text-sm text-white backdrop-blur-md transition hover:bg-white/15"
             >
               <Sparkles className="mr-2 inline-block h-5 w-5" />
@@ -143,71 +148,63 @@ export default function Hero() {
             <div className="flex flex-col gap-3 font-geist-mono text-xs sm:text-sm">
               {/* Bolhas de texto */}
               <div className="w-fit max-w-[85%] self-start rounded-2xl bg-neonPurple/25 p-3">
-                “Uma modelo vestindo um casaco, estilo inverno premium, preto e laranja, em um estudio com fotógrafos ao fundo, a câmera então se afasta, em uma perspectiva de baixo para cima.”
+                &quot;Uma modelo vestindo um casaco, estilo inverno premium, preto e laranja, em um estudio com fotógrafos ao fundo, a câmera então se afasta, em uma perspectiva de baixo para cima.&quot;
               </div>
               <div className="w-fit max-w-[85%] self-end rounded-2xl bg-turquoise/25 p-3">
               Seu vídeo em 16:9 está sendo criado. Em breve você terá um conteúdo digno de campanhas de alto desempenho! ❄️🛍️
               </div>
 
               {/* --- Pré-visualização em vídeo com controles --- */}
-              {(() => {
-                const [muted, setMuted]   = useState(true);
-                const [playing, setPlay]  = useState(true);
-                const videoRef            = useRef<HTMLVideoElement>(null);
+              <div className="relative flex h-56 w-full overflow-hidden rounded-2xl border border-dashed border-white/20">
+                <video
+                  ref={videoRef}
+                  src="/geniedreamsexemplo2.mp4"
+                  autoPlay
+                  loop
+                  muted={muted}
+                  playsInline
+                  className="h-full w-full object-cover"
+                />
 
-                return (
-                  <div className="relative flex h-56 w-full overflow-hidden rounded-2xl border border-dashed border-white/20">
-                    <video
-                      ref={videoRef}
-                      src="/geniedreamsexemplo2.mp4"
-                      autoPlay
-                      loop
-                      muted={muted}
-                      playsInline
-                      className="h-full w-full object-cover"
-                    />
+                {/* Botões */}
+                <div className="absolute bottom-2 right-2 flex gap-2">
+                  {/* mute / unmute */}
+                  <button
+                    onClick={() => {
+                      setMuted(!muted);
+                      if (videoRef.current)
+                        videoRef.current.muted = !muted;
+                    }}
+                    className="rounded-full bg-black/50 p-1 backdrop-blur-sm transition hover:bg-black/70"
+                  >
+                    {muted ? (
+                      <VolumeX className="h-4 w-4 text-white" />
+                    ) : (
+                      <Volume2 className="h-4 w-4 text-white" />
+                    )}
+                  </button>
 
-                    {/* Botões */}
-                    <div className="absolute bottom-2 right-2 flex gap-2">
-                      {/* mute / unmute */}
-                      <button
-                        onClick={() => {
-                          setMuted(!muted);
-                          if (videoRef.current)
-                            videoRef.current.muted = !muted;
-                        }}
-                        className="rounded-full bg-black/50 p-1 backdrop-blur-sm transition hover:bg-black/70"
-                      >
-                        {muted ? (
-                          <VolumeX className="h-4 w-4 text-white" />
-                        ) : (
-                          <Volume2 className="h-4 w-4 text-white" />
-                        )}
-                      </button>
-
-                      {/* play / pause */}
-                      <button
-                        onClick={() => {
-                          if (!videoRef.current) return;
-                          if (playing) {
-                            videoRef.current.pause();
-                          } else {
-                            videoRef.current.play();
-                          }
-                          setPlay(!playing);
-                        }}
-                        className="rounded-full bg-black/50 p-1 backdrop-blur-sm transition hover:bg-black/70"
-                      >
-                        {playing ? (
-                          <Pause className="h-4 w-4 text-white" />
-                        ) : (
-                          <Play className="h-4 w-4 text-white" />
-                        )}
-                      </button>
-                    </div>
-                  </div>
-                );
-              })()}
+                  {/* play / pause */}
+                  <button
+                    onClick={() => {
+                      if (!videoRef.current) return;
+                      if (playing) {
+                        videoRef.current.pause();
+                      } else {
+                        videoRef.current.play();
+                      }
+                      setPlay(!playing);
+                    }}
+                    className="rounded-full bg-black/50 p-1 backdrop-blur-sm transition hover:bg-black/70"
+                  >
+                    {playing ? (
+                      <Pause className="h-4 w-4 text-white" />
+                    ) : (
+                      <Play className="h-4 w-4 text-white" />
+                    )}
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

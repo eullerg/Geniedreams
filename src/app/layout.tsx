@@ -6,9 +6,18 @@ const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 
 export const metadata: Metadata = {
-  title: "GenieDreams • Vídeos IA via WhatsApp",
-  description: "Crie vídeos mágicos em minutos usando inteligência artificial.",
+  title: "GenieDreams",
+  description: "Crie vídeos profissionais direto do seu celular usando inteligência artificial.",
+  icons: {
+    icon: [
+      // favicon padrão
+      { url: "/geniedreams-favicon.png", sizes: "32x32", type: "image/png" },
+      // opcional: iOS / Safari Pinned
+      { url: "/geniedreams-favicon.png", rel: "apple-touch-icon" },
+    ],
+  },
 };
+
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
