@@ -30,7 +30,7 @@ export default function Steps() {
 
       {/* Sub-título */}
       <p className="mt-4 mb-12 text-center text-sm md:text-base text-neutral-400 font-geist-mono">
-      Quer um vídeo que faça seus concorrentes perguntarem "como eles fizeram isso?" Sem estúdio. Sem edição. Apenas mensagens.
+      Quer um vídeo que faça seus concorrentes perguntarem 'como eles fizeram isso?' Sem estúdio. Sem edição. Apenas mensagens.
       </p>
 
       {/* Cards */}
