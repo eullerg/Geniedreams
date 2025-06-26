@@ -6,7 +6,7 @@ const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 
 export const metadata: Metadata = {
-  title: "GenieDreams",
+  title: "Geniedreams",
   description: "Crie vídeos profissionais direto do seu celular usando inteligência artificial.",
   icons: {
     icon: [
