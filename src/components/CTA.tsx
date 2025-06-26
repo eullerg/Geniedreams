@@ -34,7 +34,7 @@ export default function CTA() {
         <div className="flex flex-1 items-center justify-center md:justify-end">
           <Image
             src="/geniedreams-logo.png"
-            alt="Logo GenieDreams"
+            alt="Logo Geniedreams"
             width={280}
             height={280}
             className="object-contain"
