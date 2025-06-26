@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 
-
 export default function Footer() {
   const primaryNav: [string, string][] = [
     ["Como Funciona", "#como-funciona"],
