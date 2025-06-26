@@ -116,7 +116,7 @@ export default function Hero() {
           </h1>
 
           <p className="max-w-md text-base text-neutral-300">
-          Sem apps, sem instalações, sem esforço. Apenas peça, receba, e compartilhe.
+          Sem apps, sem instalações, sem esforço. Apenas peça, receba e compartilhe.
           </p>
 
           <div className="flex flex-col items-center gap-4 sm:flex-row md:items-start">
